@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Week 6</title>
+    </head>
+ 
+<body>
+
+<h2>Animal game by Srikanth Pamulapati</h2>
+
+<form>
+    <label for="form1_hidden_animal">The hidden animal type</label>
+    <input type ="password" id="form1_hidden_animal" name="form1_hidden_animal"> <br>
+    <label for="form1_guess_animal">Guess the animal</label>
+    <input type ="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
+
+    <input type="button" onclick=" checkAnimal()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced</p>
+
+<script> 
+let wrong = 0
+let correct = 0
+
+function checkAnimal (){
+    console.log("Getting form values")
+    hidden = document.getElementById("form1_hidden_animal").value
+    guess = document.getElementById("form1_guess_animal").value
+    // confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    
+    out = document.getElementById("result")
+    if(hidden === guess){
+        alert("Ruff ruff")
+        out.innerHTML = "Correct: "+correct++
+    } else {
+        alert("Grrrr")
+        out.innerHTML = "Wrong: "+wrong--
+    }
+}
+</script>
+
+</body>
+</html> 
