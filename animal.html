@@ -10,7 +10,7 @@
 
 <form>
     <label for="form1_hidden_animal">The hidden animal type</label>
-    <input type ="password" id="form1_hidden_animal" name="form1_hidden_animal"> <br>
+    <input type ="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
     <label for="form1_guess_animal">Guess the animal</label>
     <input type ="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
 
@@ -34,11 +34,14 @@ function checkAnimal (){
     out = document.getElementById("result")
     if(hidden === guess){
         alert("Ruff ruff")
-        out.innerHTML = "Correct: "+correct++
+        correct++
     } else {
         alert("Grrrr")
-        out.innerHTML = "Wrong: "+wrong--
+        wrong++
     }
+    out.innerHTML = "Correct: "+correct+" Wrong: "+wrong
+
+
 }
 </script>
 
