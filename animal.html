@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>JavaScript Week 6</title>
-    </head>
- 
+
+<head>
+    <title>JavaScript Week 6</title>
+</head>
+
 <body>
 
-<h2>Animal game by Srikanth Pamulapati</h2>
+    <h2>Animal game by Srikanth Pamulapati</h2>
 
-<form>
-    <label for="form1_hidden_animal">The hidden animal type</label>
-    <input type ="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
-    <label for="form1_guess_animal">Guess the animal</label>
-    <input type ="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
+    <form>
+        <label for="form1_hidden_animal">The hidden animal type</label>
+        <input type="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
+        <label for="form1_guess_animal">Guess the animal</label>
+        <input type="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
 
-    <input type="button" onclick=" checkAnimal()" value="Check the guess">
-</form>
-
-
-<p id="result">This text will be replaced</p>
-
-<script> 
-let wrong = 0
-let correct = 0
-
-function checkAnimal (){
-    console.log("Getting form values")
-    hidden = document.getElementById("form1_hidden_animal").value
-    guess = document.getElementById("form1_guess_animal").value
-    // confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    
-    out = document.getElementById("result")
-    if(hidden === guess){
-        alert("Ruff ruff")
-        correct++
-    } else {
-        alert("Grrrr")
-        wrong++
-    }
-    out.innerHTML = "Correct: "+correct+" Wrong: "+wrong
+        <input type="button" onclick="checkAnimal()" value="Check the guess">
+    </form>
 
 
-}
-</script>
+    <p id="result">This text will be replaced</p>
+
+    <div class="container" onclick="collapse">
+        <img id="imageCarasoul" src="./images/panakam.jpeg" onclick="selectImage()" alt="" width="150px" height="150px">
+    </div>
+
+    <script>
+        let wrong = 0
+        let correct = 0
+        let useImage = 1;
+
+        function checkAnimal() {
+            hidden = document.getElementById("form1_hidden_animal").value
+            guess = document.getElementById("form1_guess_animal").value
+            // confirmed = confirm("Are these the values? "+age+" and "+nick)
+
+
+            out = document.getElementById("result")
+            if (hidden === guess) {
+                alert("Ruff ruff")
+                correct++
+            } else {
+                alert("Grrrr")
+                wrong++
+            }
+            out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
+        }
+
+        function selectImage() {
+
+            imageCarasoul = document.getElementById("imageCarasoul")
+
+            switch (useImage) {
+                case 1: imageCarasoul.src = "./images/Tati_Kallu.jpg"
+                    useImage = 2
+                    break;
+                case 2: imageCarasoul.src = "./images/Lemon_Soda.jpg"
+                    useImage = 3
+                    break;
+                case 3: imageCarasoul.src = "./images/panakam.jpeg"
+                    useImage = 1
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
