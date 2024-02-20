@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 6 - Looping</title>
+</head>
+
+<body>
+    <h1>Srikanth Pamulapati discount calculations</h1>
+    <form action="#">
+        <label for="price_per_item">Enter price per</label>
+        <input type="number" id="price_per_item" name="price_per_item" value="10">
+
+        <label for="no_of_items">Enter the number of items</label>
+        <input type="number" id="no_of_items" name="no_of_items" value="9">
+
+        <label for="discount_percentage">Enter the discount percent</label>
+        <input type="number" id="discount_percentage" name="discount_percentage" value="5">
+
+        <button value="" onclick="discount()">Show total</button>
+    </form>
+
+    <div id="result">test</div>
+<script>
+    function discount(){
+        let price_per_value = document.getElementById("price_per_item").value
+        let no_of_items = document.getElementById("no_of_items").value
+        let discount_percentage = document.getElementById("discount_percentage").value
+        myOutput = ""
+        for(let i=0; i<5; i++){
+            // discount_percentage += i;
+            let total = (price_per_value * no_of_items) - (price_per_value * no_of_items * (discount_percentage) / 100)
+            console.log(total)
+            toShow = (discount_percentage++) + "% is " + total.toFixed(1) + "; "
+            myOutput += toShow
+        }
+        document.getElementById("result").innerHTML = myOutput
+        
+    }
+</script>
+</body>
+
+</html>
