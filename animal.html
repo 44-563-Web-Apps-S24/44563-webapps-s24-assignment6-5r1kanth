@@ -3,28 +3,36 @@
 
 <head>
     <title>JavaScript Week 6</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”
+        rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I”
+        crossorigin=”anonymous”>
 </head>
 
 <body>
+    <div class="container">
+        <h1>Animal game by <span>Srikanth Pamulapati</span></h1>
 
-    <h2>Animal game by Srikanth Pamulapati</h2>
+        <form>
+            <div class="set">
+                <label for="form1_hidden_animal">The hidden animal type</label>
+                <input type="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
+            </div>
+            <div class="set">
+                <label for="form1_guess_animal">Guess the animal</label>
+                <input type="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
+            </div>
+            <input type="button" class="button" id="btn" onclick="checkAnimal()" value="Check the guess">
+        </form>
 
-    <form>
-        <label for="form1_hidden_animal">The hidden animal type</label>
-        <input type="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
-        <label for="form1_guess_animal">Guess the animal</label>
-        <input type="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
 
-        <input type="button" onclick="checkAnimal()" value="Check the guess">
-    </form>
+        <p id="result">This text will be replaced</p>
 
-
-    <p id="result">This text will be replaced</p>
-
-    <div class="container" onclick="collapse">
-        <img id="imageCarasoul" src="./images/panakam.jpeg" onclick="selectImage()" alt="" width="150px" height="150px">
+        <div class="image-container" onclick="collapse">
+            <img id="imageCarasoul" src="./images/panakam.jpeg" onclick="selectImage()" alt="" width="150px"
+                height="150px">
+        </div>
     </div>
-
     <script>
         let wrong = 0
         let correct = 0
@@ -33,6 +41,7 @@
         function checkAnimal() {
             hidden = document.getElementById("form1_hidden_animal").value
             guess = document.getElementById("form1_guess_animal").value
+            button = document.getElementById("btn")
             // confirmed = confirm("Are these the values? "+age+" and "+nick)
 
 
@@ -44,7 +53,13 @@
                 alert("Grrrr")
                 wrong++
             }
+            if (wrong > correct)
+                button.setAttribute('onclick', 'tooManyWrong()')
             out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
+        }
+
+        function tooManyWrong() {
+            alert("Sorry, too many wrong guesses.")
         }
 
         function selectImage() {

@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h1>Srikanth Pamulapati - Discount Calculations</h1>
+        <h1><span>Srikanth Pamulapati</span> - Discount Calculations</h1>
         <form action="#">
             <div class="form-group">
                 <label for="price_per_item">Enter price per</label>
@@ -25,12 +25,12 @@
                 <label for="discount_percentage">Enter the discount percent</label>
                 <input type="number" id="discount_percentage" name="discount_percentage" value="5">
             </div>
-            <input class="btn btn-primary" type="button" onclick="discount()" value="Show Total">
+            <input class="button" type="button" onclick="discount()" value="Show Total">
             <!-- <button onclick="discount()">Show total</button> -->
 
         </form>
 
-        <div id="discountResult">Result will be here...!!!</div>
+        <p id="discountResult">Result will be here...!!!</p>
         <form>
             <input type="radio" id="sum" name="color" value="Sum" onclick="chooseOp()" checked>
             <label for="sum">Sum</label></br>
@@ -41,7 +41,7 @@
             <input type="radio" id="exp" name="color" value="Exponent" onclick="chooseOp()">
             <label for="exp">Exponent</label></br>
         </form>
-        <div id="radioResult"></div>
+        <p id="radioResult"></p>
 
     </div>
     <script>
