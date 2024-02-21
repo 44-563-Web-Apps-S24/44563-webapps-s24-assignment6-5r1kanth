@@ -3,41 +3,81 @@
 
 <head>
     <title>Assignment 6 - Looping</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”
+        rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I”
+        crossorigin=”anonymous”>
 </head>
 
 <body>
-    <h1>Srikanth Pamulapati discount calculations</h1>
-    <form action="#">
-        <label for="price_per_item">Enter price per</label>
-        <input type="number" id="price_per_item" name="price_per_item" value="10">
+    <div class="container">
+        <h1>Srikanth Pamulapati - Discount Calculations</h1>
+        <form action="#">
+            <div class="form-group">
+                <label for="price_per_item">Enter price per</label>
+                <input type="number" class="form-control" id="price_per_item" name="price_per_item" value="10">
+            </div>
+            <div class="form-group">
+                <label for="no_of_items">Enter the number of items</label>
+                <input type="number" id="no_of_items" name="no_of_items" value="9">
+            </div>
+            <div class="form-group">
+                <label for="discount_percentage">Enter the discount percent</label>
+                <input type="number" id="discount_percentage" name="discount_percentage" value="5">
+            </div>
+            <input class="btn btn-primary" type="button" onclick="discount()" value="Show Total">
+            <!-- <button onclick="discount()">Show total</button> -->
 
-        <label for="no_of_items">Enter the number of items</label>
-        <input type="number" id="no_of_items" name="no_of_items" value="9">
+        </form>
 
-        <label for="discount_percentage">Enter the discount percent</label>
-        <input type="number" id="discount_percentage" name="discount_percentage" value="5">
+        <div id="discountResult">Result will be here...!!!</div>
+        <form>
+            <input type="radio" id="sum" name="color" value="Sum" onclick="chooseOp()" checked>
+            <label for="sum">Sum</label></br>
 
-        <button value="" onclick="discount()">Show total</button>
-    </form>
+            <input type="radio" id="mult" name="color" value="Multiply" onclick="chooseOp()">
+            <label for="mult">Multiply</label></br>
 
-    <div id="result">test</div>
-<script>
-    function discount(){
-        let price_per_value = document.getElementById("price_per_item").value
-        let no_of_items = document.getElementById("no_of_items").value
-        let discount_percentage = document.getElementById("discount_percentage").value
-        myOutput = ""
-        for(let i=0; i<5; i++){
-            // discount_percentage += i;
-            let total = (price_per_value * no_of_items) - (price_per_value * no_of_items * (discount_percentage) / 100)
-            console.log(total)
-            toShow = (discount_percentage++) + "% is " + total.toFixed(1) + "; "
-            myOutput += toShow
+            <input type="radio" id="exp" name="color" value="Exponent" onclick="chooseOp()">
+            <label for="exp">Exponent</label></br>
+        </form>
+        <div id="radioResult"></div>
+
+    </div>
+    <script>
+        function discount() {
+            let price_per_value = document.getElementById("price_per_item").value
+            let no_of_items = document.getElementById("no_of_items").value
+            let discount_percentage = document.getElementById("discount_percentage").value
+            var myOutput = ""
+            var toShow = ""
+            for (let i = 0; i < 5; i++) {
+                let total = (price_per_value * no_of_items) - (price_per_value * no_of_items * (discount_percentage) / 100)
+                toShow = (discount_percentage++) + "% is " + total.toFixed(1) + "; "
+                myOutput += toShow
+            }
+            document.getElementById("discountResult").innerHTML = myOutput
+
         }
-        document.getElementById("result").innerHTML = myOutput
-        
-    }
-</script>
+
+        function chooseOp(){
+            let price_per_value = document.getElementById("price_per_item").value
+            let discount_percentage = document.getElementById("discount_percentage").value
+            var myOutput = ""
+            if(document.getElementById("sum").checked){
+                value = Number(price_per_value) + Number(discount_percentage)
+                myOutput = "Addition of " + price_per_value + " and " + discount_percentage + " is " + value
+            }
+            if(document.getElementById("mult").checked){
+                myOutput = "Product of " + price_per_value + " and " + discount_percentage + " is " + (price_per_value * discount_percentage)
+            }
+            if(document.getElementById("exp").checked){
+                myOutput = "Exponent of " + price_per_value + " and " + discount_percentage + " is " + (Math.pow(price_per_value, discount_percentage))
+            }
+            document.getElementById("radioResult").innerHTML = myOutput
+
+        }
+    </script>
 </body>
 
 </html>
