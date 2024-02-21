@@ -26,6 +26,16 @@
             <input type="button" onclick="selectPack()" value="Select for packing">
         </form>
         <div id="checkboxResult"></div>
+
+        <form>
+            <label for="monthName">Enter travel month</label>
+            <input type ="text" id="monthName" name="monthName" value="May"> <br>
+        
+            <label for="enterPrice">Enter price</label>
+            <input type ="text" id="enterPrice" name="enterPrice"> <br>
+        
+            <input type="button" onclick="updatePack()" value="Update the pack">
+        </form>
     </div>
 
     <script>
@@ -39,6 +49,17 @@
                 tablet : document.getElementById("Tablet").checked
             }
         console.log(my_pack)
+            document.getElementById("checkboxResult").innerHTML = JSON.stringify(my_pack)
+        }
+
+        function updatePack(){
+            month = document.getElementById("monthName").value
+            price = document.getElementById("enterPrice").value
+            my_pack = {}
+            my_pack = {
+                Month : month,
+                Price : price
+            }
             document.getElementById("checkboxResult").innerHTML = JSON.stringify(my_pack)
         }
     </script>
