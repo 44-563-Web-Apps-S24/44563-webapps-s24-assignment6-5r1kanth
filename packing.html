@@ -48,11 +48,10 @@
 
         function selectPack() {
             my_pack = {}
-            my_pack = {
-                light: document.getElementById("Packlight").checked,
-                carry: document.getElementById("Carryon").checked,
-                tablet: document.getElementById("Tablet").checked
-            }
+            
+            my_pack.light = document.getElementById("Packlight").checked,
+            my_pack.carry = document.getElementById("Carryon").checked,
+            my_pack.tablet = document.getElementById("Tablet").checked
             console.log(my_pack)
             document.getElementById("checkboxResult").innerHTML = JSON.stringify(my_pack)
         }
@@ -60,11 +59,13 @@
         function updatePack() {
             month = document.getElementById("monthName").value
             price = document.getElementById("enterPrice").value
-            my_pack = {}
-            my_pack = {
-                Month: month,
-                Price: price
-            }
+            // my_pack = {}
+            my_pack.Month = month
+            my_pack.Price = price
+            // my_pack = {
+            //     Month: month,
+            //     Price: price
+            // }
             document.getElementById("checkboxResult").innerHTML = JSON.stringify(my_pack)
         }
     </script>
